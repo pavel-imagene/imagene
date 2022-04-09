@@ -1,15 +1,15 @@
 {
-  "name": "nest-react",
+  "name": "imagene",
   "version": "1.0.0",
-  "author": "Paul Landázuri",
+  "author": "Pavel Kalinichenko",
   "description": "Simple boilerplate for a Nest + React project",
-  "homepage": "https://github.com/LandazuriPaul/nest-react#readme",
+  "homepage": "https://github.com/pavelkalion/imagene#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LandazuriPaul/nest-react.git"
+    "url": "git+https://github.com/pavelkalion/imagene.git"
   },
   "bugs": {
-    "url": "https://github.com/LandazuriPaul/nest-react/issues"
+    "url": "https://github.com/pavelkalion/imagene/issues"
   },
   "directories": {
     "doc": "docs"
@@ -28,11 +28,11 @@
   ],
   "scripts": {
     "generate:version": "./scripts/generate_version.sh",
-    "start:domain": "yarn workspace @nest-react/domain start:dev",
-    "start:lib": "yarn workspace @nest-react/lib start:dev",
+    "start:domain": "yarn workspace @imagene/domain start:dev",
+    "start:lib": "yarn workspace @imagene/lib start:dev",
     "start:common": "(yarn start:domain & yarn start:lib)",
-    "build:domain": "yarn workspace @nest-react/domain build",
-    "build:lib": "yarn workspace @nest-react/lib build",
+    "build:domain": "yarn workspace @imagene/domain build",
+    "build:lib": "yarn workspace @imagene/lib build",
     "build:common": "yarn build:domain && yarn build:lib",
     "build-push:server": "PACKAGE=server ./scripts/build_and_push.sh",
     "build-push:client": "PACKAGE=client ./scripts/build_and_push.sh",

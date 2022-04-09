@@ -2,7 +2,7 @@
 FROM node:14-alpine as builder
 
 # Copy client and domain + lib packages
-WORKDIR /usr/src/nest-react/
+WORKDIR /usr/src/imagene/
 COPY .eslintrc .
 COPY .eslintignore .
 COPY package.json .
@@ -21,7 +21,7 @@ RUN yarn install --pure-lockfile --non-interactive
 RUN yarn build:common
 
 # Build client then
-WORKDIR /usr/src/nest-react/packages/client
+WORKDIR /usr/src/imagene/packages/client
 RUN yarn build
 
 # Runner
@@ -31,4 +31,4 @@ FROM nginx:alpine as runner
 COPY packages/client/nginx.conf /etc/nginx/nginx.conf
 
 # Copy the built static files to nginx + dictionaries
-COPY --from=builder /usr/src/nest-react/packages/client/dist /usr/share/nginx/html
+COPY --from=builder /usr/src/imagene/packages/client/dist /usr/share/nginx/html

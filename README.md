@@ -79,13 +79,13 @@ While being minimalistic, this boilerplate provides straight-forward access to t
 
 First, you'll need to download and adapt it to your project:
 
-1. You can use the [Use this template](https://github.com/LandazuriPaul/nest-react/generate) feature from GitHub to generate a new project based on this boilerplate. Alternatively, you can clone this repository to a brand new folder named after your `new-project`:
+1. You can use the [Use this template](https://github.com/pavelkalion/imagene/generate) feature from GitHub to generate a new project based on this boilerplate. Alternatively, you can clone this repository to a brand new folder named after your `new-project`:
 
    ```sh
-   git clone git@github.com:LandazuriPaul/nest-react.git new-project
+   git clone git@github.com:pavelkalion/imagene.git new-project
    ```
 
-> For steps 2 to 5, a global `search in all files` command from any decent editor should help. You can simply search for `nest-react` and replace it by your `new-project`.
+> For steps 2 to 5, a global `search in all files` command from any decent editor should help. You can simply search for `imagene` and replace it by your `new-project`.
 
 2. Change the main project's name, set in the root [`package.json`](./package.json)'s `name` field and in its `scripts` commands.
 
@@ -232,4 +232,4 @@ This project is licensed under the [GNU Lesser General Public License v3.0 or la
 
 ## Author
 
-Paul Landázuri
+Pavel Kalinichenko

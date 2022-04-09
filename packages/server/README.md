@@ -30,7 +30,7 @@ The only exception for this is in the [main's `bootstrap`](./src/main.ts) functi
 
 ## Running the app
 
-By default, the server is listening to the [http://localhost:4000](http://localhost:4000) port. This behaviour can be configured via the [local.env](./env/local.env) file.
+By default, the server is listening to the [http://localhost:4000](http://localhost:4000) port. This behaviour can be configured via the [local.env](./env/.env.local) file.
 
 ### In development
 

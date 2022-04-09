@@ -1,8 +1,8 @@
 {
-  "name": "@nest-react/lib",
+  "name": "@imagene/lib",
   "version": "1.0.0",
-  "description": "Library of the nest-react boilerplate",
-  "author": "Paul Landázuri",
+  "description": "Library of the imagene boilerplate",
+  "author": "Pavel Kalinichenko",
   "license": "LGPL-3.0-or-later",
   "main": "dist/index.js",
   "scripts": {

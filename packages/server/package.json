@@ -1,8 +1,8 @@
 {
-  "name": "@nest-react/server",
+  "name": "@imagene/server",
   "version": "1.0.0",
   "description": "Backend of the Nest + React boilerplate",
-  "author": "Paul Landázuri",
+  "author": "Pavel Kalinichenko",
   "license": "LGPL-3.0-or-later",
   "main": "src/main.ts",
   "scripts": {
@@ -25,8 +25,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nest-react/domain": "^1.0.0",
-    "@nest-react/lib": "^1.0.0",
+    "@imagene/domain": "^1.0.0",
+    "@imagene/lib": "^1.0.0",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 
-import { Dictionary } from '@nest-react/domain';
+import { Dictionary } from '@imagene/domain';
 
 import { API_URL } from '~/config';
 import { Logger, checkServerVersion } from '~/utils';
@@ -34,7 +34,7 @@ export const App: FC<unknown> = () => {
     <>
       <div>
         Here we use a <code>Dictionary&lt;number&gt;</code> interface from the{' '}
-        <code>@nest-react/domain</code> package:
+        <code>@imagene/domain</code> package:
         <pre>{JSON.stringify(dictExample)}</pre>
       </div>
       <div>
