@@ -1,6 +1,5 @@
 console.log('empty');
 
-
 export class Test {
   private test: string;
 
@@ -9,6 +8,8 @@ export class Test {
   }
 
   public get_string(): string {
-    return this.test +'asdas';
+    return this.test + 'asdas';
   }
 }
+
+export * from './prisma';

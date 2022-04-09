@@ -4,9 +4,11 @@ import { Dictionary } from '@imagene/domain';
 
 import { API_URL } from '~/config';
 import { Logger, checkServerVersion } from '~/utils';
+import { UserModel } from '@imagene/lib';
 
 export const App: FC<unknown> = () => {
   const [response, setResponse] = useState<string>('NO SERVER RESPONSE');
+  const [users, setUsers] = useState<UserModel[]>([]);
 
   useEffect(() => {
     async function fetchResponse(): Promise<void> {
@@ -19,11 +21,23 @@ export const App: FC<unknown> = () => {
       }
     }
 
-    fetchResponse();
+    fetchResponse().catch(err => Logger.error(err));
+
+    async function getUsers(): Promise<void> {
+      try {
+        const res = await fetch(`${API_URL}/user`);
+        const data = await res.json();
+        setUsers(data);
+      } catch (err) {
+        Logger.error(err);
+      }
+    }
+
+    getUsers().catch(err => Logger.error(err));
   }, []);
 
   useEffect(() => {
-    checkServerVersion();
+    checkServerVersion().catch(err => Logger.error(err));
   }, []);
 
   const dictExample: Dictionary<number> = {
@@ -42,6 +56,18 @@ export const App: FC<unknown> = () => {
         <br />
         <br />
         {response}
+      </div>
+      <div>
+        Here are users:
+        <br />
+        <br />
+        <ul>
+          {users.map(user => (
+            <li key={user.email}>
+              Email: {user.email}, Name: {user.name}
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );
