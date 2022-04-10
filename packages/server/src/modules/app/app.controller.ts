@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import {
   Body,
   Controller,
@@ -7,57 +8,19 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { UserModel, UserService } from '@imagene/lib';
+import {
+  DatasetModel,
+  DatasetService,
+  UserModel,
+  UserService,
+} from '@imagene/lib';
 
 @Controller()
 export class AppController {
   constructor(
-    private readonly userService: UserService // private readonly postService: PostService
+    private readonly userService: UserService,
+    private readonly datasetService: DatasetService
   ) {}
-  //
-  // @Get('post/:id')
-  // async getPostById(@Param('id') id: string): Promise<PostModel> {
-  //   return this.postService.post({ id: Number(id) });
-  // }
-  //
-  // @Get('feed')
-  // async getPublishedPosts(): Promise<PostModel[]> {
-  //   return this.postService.posts({
-  //     where: { published: true },
-  //   });
-  // }
-  //
-  // @Get('filtered-posts/:searchString')
-  // async getFilteredPosts(
-  //   @Param('searchString') searchString: string
-  // ): Promise<PostModel[]> {
-  //   return this.postService.posts({
-  //     where: {
-  //       OR: [
-  //         {
-  //           title: { contains: searchString },
-  //         },
-  //         {
-  //           content: { contains: searchString },
-  //         },
-  //       ],
-  //     },
-  //   });
-  // }
-  //
-  // @Post('post')
-  // async createDraft(
-  //   @Body() postData: { title: string; content?: string; authorEmail: string }
-  // ): Promise<PostModel> {
-  //   const { title, content, authorEmail } = postData;
-  //   return this.postService.createPost({
-  //     title,
-  //     content,
-  //     author: {
-  //       connect: { email: authorEmail },
-  //     },
-  //   });
-  // }
 
   @Post('user')
   async signupUser(
@@ -74,16 +37,47 @@ export class AppController {
     return this.userService.users({});
   }
 
-  // @Put('publish/:id')
-  // async publishPost(@Param('id') id: string): Promise<PostModel> {
-  //   return this.postService.updatePost({
-  //     where: { id: Number(id) },
-  //     data: { published: true },
-  //   });
+  // @Get('dataset/:dataset_id')
+  // async getDatasetById(
+  //   @Param('dataset_id') dataset_id: string
+  // ): Promise<DatasetModel> {
+  //   return this.datasetService.dataset({ dataset_id: Number(dataset_id) });
   // }
-  //
-  // @Delete('post/:id')
-  // async deletePost(@Param('id') id: string): Promise<PostModel> {
-  //   return this.postService.deletePost({ id: Number(id) });
-  // }
+
+  @Get('filtered-datasets/:searchString')
+  async getFilteredDatasets(
+    @Param('searchString') searchString: string
+  ): Promise<DatasetModel[]> {
+    return this.datasetService.datasets({
+      where: {
+        title: { contains: searchString },
+      },
+    });
+  }
+
+  @Post('dataset')
+  async createDataset(
+    @Body()
+    datasetData: {
+      title: string;
+      userEmail: string;
+    }
+  ): Promise<DatasetModel> {
+    const { title, userEmail } = datasetData;
+    return this.datasetService.createDataset({
+      title,
+      // user: {
+      //   connect: { email: userEmail },
+      // },
+    });
+  }
+
+  @Delete('dataset/:dataset_id')
+  async deleteDataset(
+    @Param('dataset_id') dataset_id: string
+  ): Promise<DatasetModel> {
+    return this.datasetService.deleteDataset({
+      dataset_id: Number(dataset_id),
+    });
+  }
 }

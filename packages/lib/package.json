@@ -5,6 +5,9 @@
   "author": "Pavel Kalinichenko",
   "license": "LGPL-3.0-or-later",
   "main": "dist/index.js",
+  "prisma": {
+      "seed": "ts-node src/prisma/seed.ts"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",

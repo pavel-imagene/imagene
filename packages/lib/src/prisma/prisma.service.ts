@@ -14,4 +14,4 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
   }
 }
 
-export { User as UserModel } from '@prisma/client';
+export { User as UserModel, Dataset as DatasetModel } from '@prisma/client';
